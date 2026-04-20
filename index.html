@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор бізнес-кредиту</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Калькулятор бізнес-кредиту</h1>
+
+<div class="calculator">
+    <input type="number" id="amount" placeholder="Сума кредиту">
+    <input type="number" id="months" placeholder="Термін (місяці)">
+    <input type="number" id="rate" placeholder="Річна ставка (%)">
+
+    <button onclick="calculate()">Розрахувати</button>
+
+    <p id="monthly"></p>
+    <p id="total"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
