@@ -1,16 +1,23 @@
 function calculate() {
-    let amount = document.getElementById("amount").value;
-    let months = document.getElementById("months").value;
-    let rate = document.getElementById("rate").value;
+    let amount = parseFloat(document.getElementById("amount").value);
+    let months = parseFloat(document.getElementById("months").value);
+    let rate = parseFloat(document.getElementById("rate").value);
+
+    if (!amount || !months || !rate) {
+        alert("Заповніть всі поля");
+        return;
+    }
 
     let monthlyRate = rate / 100 / 12;
 
-    let monthlyPayment = (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
-    let totalPayment = monthlyPayment * months;
+    let payment = (amount * monthlyRate) /
+        (1 - Math.pow(1 + monthlyRate, -months));
+
+    let total = payment * months;
 
     document.getElementById("monthly").innerText =
-        "Щомісячний платіж: " + monthlyPayment.toFixed(2);
+        "Щомісячний платіж: " + payment.toFixed(2);
 
     document.getElementById("total").innerText =
-        "Загальна переплата: " + (totalPayment - amount).toFixed(2);
+        "Переплата: " + (total - amount).toFixed(2);
 }
